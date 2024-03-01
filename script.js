@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
   elemekElerese3();
   elemekElerese4();
   elemekFormazasa1();
-  esemenyKezeles1();
   esemenyKezeles2();
   esemenyKezeles3();
 });
@@ -42,16 +41,20 @@ function elemekFormazasa1() {
   const otodikElem = document.querySelectorAll(".lista")[0];
   otodikElem.classList.add("formazott");
   console.log("elemek formazasa sikeres.");
+  otodikElem.addEventListener("click", esemenyKezeles1);
+  function esemenyKezeles1() {
+    document.getElementsByClassName("kattintasutan")[0].innerHTML +=
+      otodikElem.innerHTML;
+  }
 }
 
-const hatodikElem = document.querySelectorAll(".lista")[0];
-hatodikElem.addEventListener("click", esemenyKezeles1);
-
-function esemenyKezeles1() {
-  const kattintas = document.querySelectorAll(".kattintasutan")[0];
-  kattintas.innerHTML += hatodikElem.innerHTML;
+function esemenyKezeles2() {
+  const hatodikElem = document.getElementsByClassName("feladat")[0];
+  hatodikElem.innerHTML += "<button>Gomb</button>";
+  hatodikElem.addEventListener("click", esemenyKezelese2);
+  function esemenyKezelese2() {
+    hatodikElem.innerHTML += `<div><img src="kacsa.webp"></div>`;
+  }
 }
-
-function esemenyKezeles2() {}
 
 function esemenyKezeles3() {}
